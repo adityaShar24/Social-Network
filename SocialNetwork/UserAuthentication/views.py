@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import check_password
 from rest_framework.generics import CreateAPIView, ListAPIView
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated, AllowAny , IsAdminUser
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.status import HTTP_400_BAD_REQUEST
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
@@ -36,6 +37,8 @@ class UserLoginView(APIView):
                 if user and check_password(password, user.password):
                     access = AccessToken.for_user(user)
                     refresh = RefreshToken.for_user(user)
+                    print("access", access)
+                    print("refresh", refresh)
                     response_data = {
                         "message": f"User {user.username} has been logged in successfully!",
                         "refresh": str(refresh),
@@ -52,27 +55,21 @@ class UserLoginView(APIView):
 
 class UserSearchView(ListAPIView):
     serializer_class = UserSerializer
-    permission_classes = [IsAuthenticated,]
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
     
     def get_queryset(self):
-        try:
-            offset = int(self.request.query_params.get('offset', 0))
-            limit = 10
-            keyword = self.request.query_params.get('search', None)
-            queryset = User.objects.all()
-            print(f"Keyword: {keyword}, Offset: {offset}")
-            
-            if keyword:
-                queryset = queryset.filter(Q(email__iexact=keyword) | Q(username__icontains=keyword))
-            
-            print(f"Queryset count: {queryset.count()}") 
-            return queryset[offset: offset + limit]
-        except Exception as e:
-            print(f"Error in get_queryset: {e}")
-            return User.objects.none()
+        offset = int(self.request.query_params.get('offset', 0))
+        limit = 10
+        keyword = self.request.query_params.get('search', None)
+        queryset = User.objects.all()
+        
+        if keyword:
+            queryset = queryset.filter(Q(email__iexact=keyword) | Q(username__icontains=keyword))
+        
+        return queryset[offset: offset + limit]
     
     def list(self, request, *args, **kwargs):
-        print("Received request for user search") 
         try:
             queryset = self.get_queryset()
             if not queryset:
