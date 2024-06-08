@@ -56,3 +56,17 @@ class FriendRequestResponseView(APIView):
             return Response({'message': f'Friend request {action}ed successfully'})
         except FriendShipRequest.DoesNotExist:
             return Response({'error': 'Friend request not found'}, status=HTTP_404_NOT_FOUND)
+        
+class FriendsListView(ListAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+    def get_queryset(self):
+        user = self.request.user
+        friends = User.objects.filter(
+            Q(sent_requests__to_user=user, sent_requests__status= RequestStatusEnum.Accepted.value) |
+            Q(received_requests__from_user=user, received_requests__status=RequestStatusEnum.Accepted.value)
+        ).distinct()
+        return friends
+
