@@ -37,8 +37,6 @@ class UserLoginView(APIView):
                 if user and check_password(password, user.password):
                     access = AccessToken.for_user(user)
                     refresh = RefreshToken.for_user(user)
-                    print("access", access)
-                    print("refresh", refresh)
                     response_data = {
                         "message": f"User {user.username} has been logged in successfully!",
                         "refresh": str(refresh),
