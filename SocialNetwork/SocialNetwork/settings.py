@@ -120,48 +120,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SECRET_KEY = 'django-insecure-@jj3h*b0=#(r=m^8u0*b)==%l#h(@v)in4q6j9mpbzd(0qtc6k'
-
-from datetime import timedelta
-
-
-DEBUG = True
-
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'socialnewtworkdb',
-        'USER':'root',
-        'PASSWORD':'adityaShar24',
-        'HOST':'',
-        'PORT':'',
-        'OPTIONS':{
-            'charset': 'utf8mb4'
-        }
-    }
-}
-
-SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(hours=12),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=12),
-    'ROTATE_REFRESH_TOKENS': False,
-    'BLACKLIST_AFTER_ROTATION': True,
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
-    'VERIFYING_KEY': None,
-    'AUDIENCE': None,
-    'ISSUER': None,
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'USER_ID_FIELD': 'id',
-    'USER_ID_CLAIM': 'user_id',
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
-    'TOKEN_TYPE_CLAIM': 'token_type',
-    'JTI_CLAIM': 'jti',
-    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-    'SLIDING_TOKEN_LIFETIME': timedelta(hours=12),
-    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=12),
-}
-
 AUTH_USER_MODEL = 'UserAuthentication.User'
+
+from .local_settings import *
