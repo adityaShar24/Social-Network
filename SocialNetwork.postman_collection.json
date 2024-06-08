@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "f299b86e-d1f9-4b46-829c-e2309517b2fc",
+		"name": "SocialNetwork",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32515670",
+		"_collection_link": "https://planetary-meteor-863293.postman.co/workspace/SocialNetwork~97ab3a00-7409-4cb5-bc34-9c8cbe4eb622/collection/32515670-f299b86e-d1f9-4b46-829c-e2309517b2fc?action=share&source=collection_link&creator=32515670"
+	},
+	"item": [
+		{
+			"name": "UserAuth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"samay@gmail.com\",\r\n    \"username\": \"sam\",\r\n    \"password\":\"susus\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/api/auth/register/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"user4@gmail.com\",\r\n    \"username\": \"user__001\",\r\n    \"password\":\"@user12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_url}}/api/auth/register/",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 05 Jun 2024 10:35:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "100"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User has been registered successfully\",\n    \"username\": \"user__001\",\n    \"email\": \"user4@gmail.com\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"access_token\", data.access);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"prachi@gmail.com\",\r\n    \"password\":\"prachi123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/api/auth/login/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \r\n    \"email\": \"user4@gmail.com\",\r\n    \"password\":\"@user12345\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_url}}/api/auth/login/",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 05 Jun 2024 10:36:15 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "543"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User user__001 has been logged in successfully!\",\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxNzY3MDE3NCwiaWF0IjoxNzE3NTgzNzc0LCJqdGkiOiI3OGM4OWRkZTE4Zjk0OGFjYWU3M2VmMjdmNWRmMmI0ZSIsInVzZXJfaWQiOjN9.nuk6zudLMeuaJWuuNJPTmZwpxUe0UQnZCBx7aWRVWM4\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE3NTg0MDc0LCJpYXQiOjE3MTc1ODM3NzQsImp0aSI6Ijg1Y2E5OTljZDc4NjRiMmZiMzk4OGRkNTdlMWI2MDhhIiwidXNlcl9pZCI6M30.9hoB4QjutqRuoS4SQeEJLdAbSf7wuLlR-clFPObuFz0\"\n}"
+						}
+					]
+				},
+				{
+					"name": "search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/auth/search/?search=a&offset=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "a"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_url}}/api/auth/search/?search=use&offset=0",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"search",
+										""
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "use"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 05 Jun 2024 10:37:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "170"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"username\": \"user22\",\n        \"email\": \"user3@gmail.com\"\n    },\n    {\n        \"id\": 2,\n        \"username\": \"user33\",\n        \"email\": \"user33@gmail.com\"\n    },\n    {\n        \"id\": 3,\n        \"username\": \"user__001\",\n        \"email\": \"user4@gmail.com\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "FriendRequest",
+			"item": [
+				{
+					"name": "Send Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}         ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"to_user\": 4\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/api/friendship/friend-request/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"friendship",
+								"friend-request",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Send Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"to_user\": 4\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{api_url}}/api/friendship/friend-request/",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"friendship",
+										"friend-request",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jun 2024 05:29:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Friend request sent successfully\",\n    \"request\": {\n        \"id\": 10,\n        \"from_user\": 7,\n        \"to_user\": 4,\n        \"timestamp\": \"2024-06-08T05:29:09.430234Z\",\n        \"status\": \"Pending\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Request Response",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/api/friendship/friend-request/:request_id/:action/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"friendship",
+								"friend-request",
+								":request_id",
+								":action",
+								""
+							],
+							"variable": [
+								{
+									"key": "request_id",
+									"value": "10"
+								},
+								{
+									"key": "action",
+									"value": "accept"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Request Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{api_url}}/api/friendship/friend-request/:request_id/:action/",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"friendship",
+										"friend-request",
+										":request_id",
+										":action",
+										""
+									],
+									"variable": [
+										{
+											"key": "request_id",
+											"value": "10"
+										},
+										{
+											"key": "action",
+											"value": "accept"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jun 2024 05:34:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Friend request accepted successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Friends",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/api/friendship/friends/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"friendship",
+								"friends",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Friends",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_url}}/api/friendship/friends/",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"friendship",
+										"friends",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jun 2024 05:36:15 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 7,\n        \"username\": \"sam\",\n        \"email\": \"samay@gmail.com\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Pending Requests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/api/friendship/pending-requests/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"friendship",
+								"pending-requests",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Pending Requests",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{api_url}}/api/friendship/pending-requests/",
+									"host": [
+										"{{api_url}}"
+									],
+									"path": [
+										"api",
+										"friendship",
+										"pending-requests",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sat, 08 Jun 2024 05:38:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.10.5"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 4,\n        \"from_user\": 5,\n        \"to_user\": 4,\n        \"timestamp\": \"2024-06-08T05:17:58.606341Z\",\n        \"status\": \"Pending\"\n    },\n    {\n        \"id\": 5,\n        \"from_user\": 6,\n        \"to_user\": 4,\n        \"timestamp\": \"2024-06-08T05:21:58.984585Z\",\n        \"status\": \"Pending\"\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	]
+}
