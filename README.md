@@ -76,3 +76,10 @@
 Feel free to contribute to enhance the functionality of Todo-Application. Follow the [contribution guidelines](CONTRIBUTING.md) for more details.
 
 ## License 📄
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/adityaShar24/Accuknox-Pvt-ltd-Assignment/blob/main/LICENSE) file for details.
+
+## Acknowledgments 🙏
+
+Special thanks to the Django community and contributors for making this project possible.
+
+Happy coding! 😊
