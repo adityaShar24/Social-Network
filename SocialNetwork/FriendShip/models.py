@@ -6,7 +6,7 @@ from .enums import RequestStatusEnum
 class FriendShipRequest(models.Model):
     from_user = models.ForeignKey(User, related_name='sent_requests', on_delete=models.CASCADE)
     to_user = models.ForeignKey(User, related_name='received_requests', on_delete=models.CASCADE)
-    timestamp = models.DateTimeField(auto_now_add=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
     status = models.CharField(
         max_length=10,
         choices=RequestStatusEnum.choices(),

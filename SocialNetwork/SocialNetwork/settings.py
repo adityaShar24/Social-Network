@@ -123,4 +123,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'UserAuthentication.User'
 
+USE_TZ = True
+
+
 from .local_settings import *
