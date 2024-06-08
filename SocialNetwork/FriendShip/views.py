@@ -70,3 +70,11 @@ class FriendsListView(ListAPIView):
         ).distinct()
         return friends
 
+class PendingFriendRequestsView(ListAPIView):
+    serializer_class = FriendShipRequestSerializer
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+    def get_queryset(self):
+        user = self.request.user
+        return FriendShipRequest.objects.filter(to_user=user, status= RequestStatusEnum.Pending.value)
