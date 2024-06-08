@@ -36,3 +36,23 @@ class FriendRequestView(APIView):
             return Response({'message': 'Friend request sent successfully'}, status=HTTP_201_CREATED)
         except User.DoesNotExist:
             return Response({'error': 'User not found'}, status=HTTP_404_NOT_FOUND)    
+
+class FriendRequestResponseView(APIView):
+    permission_classes = [IsAuthenticated]
+    authentication_classes = [JWTAuthentication]
+
+    def post(self, request, request_id, action):
+        try:
+            friend_request = FriendShipRequest.objects.get(id=request_id, to_user=request.user)
+
+            if action == 'accept':
+                friend_request.status = RequestStatusEnum.Accepted.value
+            elif action == 'reject':
+                friend_request.status = RequestStatusEnum.Rejected.value
+            else:
+                return Response({'error': 'Invalid action'}, status=HTTP_400_BAD_REQUEST)
+
+            friend_request.save()
+            return Response({'message': f'Friend request {action}ed successfully'})
+        except FriendShipRequest.DoesNotExist:
+            return Response({'error': 'Friend request not found'}, status=HTTP_404_NOT_FOUND)
