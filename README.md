@@ -1,4 +1,4 @@
-# Accuknox-Pvt-ltd-Assignment
+# Social-Network
 
 ## Features ✨
 
@@ -38,7 +38,7 @@
 
 1. **Clone the Repository:**
    ```shell
-   git clone https://github.com/adityaShar24/Accuknox-Pvt-ltd-Assignment.git
+   git clone https://github.com/adityaShar24/Social-Network
 
 2. **Create and activate a virtual environment (optional but recommended)**
    ```shell
@@ -76,7 +76,7 @@
 Feel free to contribute to enhance the functionality of Todo-Application. Follow the [contribution guidelines](CONTRIBUTING.md) for more details.
 
 ## License 📄
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/adityaShar24/Accuknox-Pvt-ltd-Assignment/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/adityaShar24/Social-Network/blob/main/LICENSE) file for details.
 
 ## Acknowledgments 🙏
 
